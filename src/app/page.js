@@ -41,11 +41,10 @@ export default function Home() {
           <div className={styles.mission}>
             <h2>🚀 The CoolAla Ecosystem Revolution</h2>
             <div>
-            <p>
-              We evolved from meme coin to Solana's first <strong>community-driven hedge fund</strong>. Here&apos;s why you should join:
-            </p>
+              <p>
+                We evolved from meme coin to Solana&apos;s first <strong>community-driven hedge fund</strong>. Here&apos;s why you should join:
+              </p>
 
-              
               <div className={styles.highlights}>
                 <div className={styles.bullet}>
                   <div className={styles.glowBullet}></div>
@@ -76,7 +75,7 @@ export default function Home() {
               </div>
 
               <div className={styles.cta}>
-                <strong>Be part of Web3's first profitable DAO!</strong><br/>
+                <strong>Be part of Web3&apos;s first profitable DAO!</strong><br/>
                 Every $COOL holder earns through:<br/>
                 ↗️ Price Appreciation<br/>
                 🏦 Staking Dividends<br/>
