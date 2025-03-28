@@ -5,7 +5,7 @@ import { collection, query, orderBy, limit, onSnapshot } from 'firebase/firestor
 import { FaX, FaDiscord } from 'react-icons/fa6';
 import NewsPanel from '@/components/NewsPanel';
 import styles from './page.module.css';
-import Image from 'next/image'; // Importe o componente Image
+import Image from 'next/image';
 
 export default function Home() {
   const [walletBalance, setWalletBalance] = useState(0);
@@ -95,8 +95,8 @@ export default function Home() {
             <Image
               src="/images/coingecko.png"
               alt="CoinGecko"
-              width={200}  // Ajuste conforme necessário
-              height={50}   // Ajuste conforme necessário
+              width={200}
+              height={50}
               priority
             />
           </a>
