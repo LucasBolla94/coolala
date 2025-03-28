@@ -1,168 +1,208 @@
-.page {
-  --gray-rgb: 0, 0, 0;
-  --gray-alpha-200: rgba(var(--gray-rgb), 0.08);
-  --gray-alpha-100: rgba(var(--gray-rgb), 0.05);
-
-  --button-primary-hover: #383838;
-  --button-secondary-hover: #f2f2f2;
-
-  display: grid;
-  grid-template-rows: 20px 1fr 20px;
-  align-items: center;
-  justify-items: center;
-  min-height: 100svh;
-  padding: 80px;
-  gap: 64px;
-  font-family: var(--font-geist-sans);
-}
-
-@media (prefers-color-scheme: dark) {
-  .page {
-    --gray-rgb: 255, 255, 255;
-    --gray-alpha-200: rgba(var(--gray-rgb), 0.145);
-    --gray-alpha-100: rgba(var(--gray-rgb), 0.06);
-
-    --button-primary-hover: #ccc;
-    --button-secondary-hover: #1a1a1a;
-  }
-}
-
-.main {
+.container {
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  gap: 32px;
-  grid-row-start: 2;
 }
 
-.main ol {
-  font-family: var(--font-geist-mono);
-  padding-left: 0;
+.spaceBackground {
+  background: linear-gradient(to bottom, #000000, #0a1931);
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+}
+
+.moon {
+  position: absolute;
+  top: 5%;
+  right: 10%;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, #f8f9fa 10%, #6c757d 90%);
+  box-shadow: 0 0 80px rgba(255, 255, 255, 0.2);
+  filter: blur(0.5px);
+}
+
+.stars {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: url('/images/stars.png') repeat;
+  opacity: 0.8;
+  animation: starTrail 120s linear infinite;
+}
+
+@keyframes starTrail {
+  from { background-position: 0 0; }
+  to { background-position: -1000px 500px; }
+}
+
+.content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+.title {
+  font-size: 4rem;
+  background: linear-gradient(to right, #00b4d8, #90e0ef);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-align: center;
+  margin: 2rem 0;
+  letter-spacing: 2px;
+}
+
+.statsContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.statBox {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  padding: 1.5rem;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.statBox:hover {
+  transform: translateY(-5px);
+}
+
+.statBox span {
+  color: #90e0ef;
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.statBox h2 {
+  color: white;
   margin: 0;
-  font-size: 14px;
-  line-height: 24px;
-  letter-spacing: -0.01em;
-  list-style-position: inside;
+  font-size: 1.8rem;
 }
 
-.main li:not(:last-of-type) {
-  margin-bottom: 8px;
-}
-
-.main code {
-  font-family: inherit;
-  background: var(--gray-alpha-100);
-  padding: 2px 4px;
-  border-radius: 4px;
-  font-weight: 600;
-}
-
-.ctas {
+.socialLinks {
   display: flex;
-  gap: 16px;
+  justify-content: center;
+  gap: 2rem;
+  margin: 3rem 0;
 }
 
-.ctas a {
-  appearance: none;
-  border-radius: 128px;
-  height: 48px;
-  padding: 0 20px;
-  border: none;
-  border: 1px solid transparent;
-  transition:
-    background 0.2s,
-    color 0.2s,
-    border-color 0.2s;
-  cursor: pointer;
+.icon {
+  color: #7289da;
+  font-size: 2.5rem;
+  transition: all 0.3s ease;
+}
+
+.xIcon {
+  color: white;
+  font-size: 2.2rem;
+  padding: 5px;
+  background: black;
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+}
+
+.xIcon:hover {
+  transform: rotate(180deg);
+}
+
+.mission {
+  background: rgba(10, 25, 49, 0.8);
+  padding: 2rem;
+  border-radius: 16px;
+  border: 1px solid #00b4d8;
+  margin: 3rem 0;
+}
+
+.mission h2 {
+  color: #90e0ef;
+  margin-top: 0;
+}
+
+.mission p {
+  color: #caf0f8;
+  line-height: 1.6;
+  font-size: 1.1rem;
+}
+
+.newsPanel {
+  background: rgba(10, 25, 49, 0.9);
+  border-radius: 16px;
+  padding: 2rem;
+  margin: 2rem 0;
+  border: 1px solid #00b4d8;
+}
+
+.newsItem {
+  padding: 1rem 0;
+  border-bottom: 1px solid rgba(202, 240, 248, 0.1);
+}
+
+.newsHeader {
   display: flex;
   align-items: center;
-  justify-content: center;
-  font-size: 16px;
-  line-height: 20px;
-  font-weight: 500;
+  gap: 10px;
+  margin-bottom: 0.5rem;
 }
 
-a.primary {
-  background: var(--foreground);
-  color: var(--background);
-  gap: 8px;
+.newsDate {
+  color: #00b4d8;
+  font-size: 0.9rem;
 }
 
-a.secondary {
-  border-color: var(--gray-alpha-200);
-  min-width: 158px;
+.newsBullet {
+  width: 6px;
+  height: 6px;
+  background: #90e0ef;
+  border-radius: 50%;
+}
+
+.newsButton {
+  display: block;
+  width: 100%;
+  background: transparent;
+  border: 1px solid #00b4d8;
+  color: #90e0ef;
+  padding: 0.8rem;
+  border-radius: 8px;
+  margin-top: 1.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.newsButton:hover {
+  background: rgba(0, 180, 216, 0.1);
 }
 
 .footer {
-  grid-row-start: 3;
-  display: flex;
-  gap: 24px;
+  background: rgba(10, 25, 49, 0.9);
+  padding: 1.5rem;
+  text-align: center;
+  color: #caf0f8;
+  position: relative;
 }
 
-.footer a {
-  display: flex;
-  align-items: center;
-  gap: 8px;
+.coingecko {
+  position: absolute;
+  right: 2rem;
+  bottom: 50%;
+  transform: translateY(50%);
 }
 
-.footer img {
-  flex-shrink: 0;
+.coingecko img {
+  height: 35px;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
 }
 
-/* Enable hover only on non-touch devices */
-@media (hover: hover) and (pointer: fine) {
-  a.primary:hover {
-    background: var(--button-primary-hover);
-    border-color: transparent;
-  }
-
-  a.secondary:hover {
-    background: var(--button-secondary-hover);
-    border-color: transparent;
-  }
-
-  .footer a:hover {
-    text-decoration: underline;
-    text-underline-offset: 4px;
-  }
-}
-
-@media (max-width: 600px) {
-  .page {
-    padding: 32px;
-    padding-bottom: 80px;
-  }
-
-  .main {
-    align-items: center;
-  }
-
-  .main ol {
-    text-align: center;
-  }
-
-  .ctas {
-    flex-direction: column;
-  }
-
-  .ctas a {
-    font-size: 14px;
-    height: 40px;
-    padding: 0 16px;
-  }
-
-  a.secondary {
-    min-width: auto;
-  }
-
-  .footer {
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  .logo {
-    filter: invert();
-  }
+.coingecko img:hover {
+  opacity: 1;
 }
