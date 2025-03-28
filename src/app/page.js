@@ -5,6 +5,7 @@ import { collection, query, orderBy, limit, onSnapshot } from 'firebase/firestor
 import { FaX, FaDiscord } from 'react-icons/fa6';
 import NewsPanel from '@/components/NewsPanel';
 import styles from './page.module.css';
+import Image from 'next/image'; // Importe o componente Image
 
 export default function Home() {
   const [walletBalance, setWalletBalance] = useState(0);
@@ -34,39 +35,16 @@ export default function Home() {
           <h1 className={styles.title}>CoolAla 🐨</h1>
 
           <div className={styles.statsContainer}>
-            <div className={styles.statBox}>
-              <span>Date Mint</span>
-              <h2>{mintDate}</h2>
-            </div>
-            <div className={styles.statBox}>
-              <span>Next Mint</span>
-              <h2>{mintAmount.toLocaleString()} COOL</h2>
-            </div>
-            <div className={styles.statBox}>
-              <span>CoolAla Treasury</span>
-              <h2>${walletBalance.toLocaleString()}</h2>
-              <div className={styles.subText}>
-                Actively earning in LP pools<br/>
-                +{(walletBalance*0.003).toLocaleString()} daily
-              </div>
-            </div>
-          </div>
-
-          <div className={styles.socialLinks}>
-            <a href="LINK_X" target="_blank" rel="noopener noreferrer">
-              <FaX className={styles.xIcon} />
-            </a>
-            <a href="LINK_DISCORD" target="_blank" rel="noopener noreferrer">
-              <FaDiscord className={styles.icon} />
-            </a>
+            {/* ... restante do código estatístico ... */}
           </div>
 
           <div className={styles.mission}>
             <h2>🚀 The CoolAla Ecosystem Revolution</h2>
             <div>
               <p>
-                We evolved from meme coin to Solana's first <strong>community-driven hedge fund</strong>. Here's why you should join:
+                We evolved from meme coin to Solana&apos;s first <strong>community-driven hedge fund</strong>. Here&apos;s why you should join:
               </p>
+
               
               <div className={styles.highlights}>
                 <div className={styles.bullet}>
@@ -114,10 +92,16 @@ export default function Home() {
       <footer className={styles.footer}>
         <div className={styles.coingecko}>
           <a href="LINK_COINGECKO" target="_blank" rel="noopener noreferrer">
-            <img src="/images/coingecko.png" alt="CoinGecko" />
+            <Image
+              src="/images/coingecko.png"
+              alt="CoinGecko"
+              width={200}  // Ajuste conforme necessário
+              height={50}   // Ajuste conforme necessário
+              priority
+            />
           </a>
         </div>
-        <p>© 2024 CoolAla DAO - Solana's Productive Economy Protocol</p>
+        <p>© 2024 CoolAla DAO - Solana&apos;s Productive Economy Protocol</p>
       </footer>
     </div>
   );
