@@ -41,9 +41,9 @@ export default function Home() {
           <div className={styles.mission}>
             <h2>🚀 The CoolAla Ecosystem Revolution</h2>
             <div>
-              <p>
-                We evolved from meme coin to Solana&apos;s first <strong>community-driven hedge fund</strong>. Here&apos;s why you should join:
-              </p>
+            <p>
+              We evolved from meme coin to Solana's first <strong>community-driven hedge fund</strong>. Here&apos;s why you should join:
+            </p>
 
               
               <div className={styles.highlights}>
